@@ -11,7 +11,6 @@
   body {
     font-family: 'Inclusive Sans', sans-serif;
     width: auto;
-    background-color: black;
   }
   body.modal-active {
     overflow: hidden;
@@ -201,11 +200,25 @@
   z-index: 1;
   background-color: rgba(0, 0, 0, 0);
 }
-
+#modal.active {
+  display: flex;
+  animation-name: fadeInBG;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInBG {
+  from {
+    background-color: rgba(0,0,0,0);
+  }
+  to {
+    background-color: rgba(0,0,0,.7);
+  }
+}
 
 /* Modal Items */
 
 #modal-items {
+  opacity: 0;
   width: 90%;
   height: auto;
   margin-top: 5%;
@@ -214,7 +227,20 @@
   position: relative;
   overflow-y: auto;
 }
-
+#modal-items.active {
+  animation-name: fadeIn;
+  animation-duration: 300ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* Modal Header */
 
 #modal-header {
